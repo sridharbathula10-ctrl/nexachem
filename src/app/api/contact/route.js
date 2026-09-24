@@ -1,9 +1,11 @@
-const recipient = "sridharbathula10@gmail.com";
+import nodemailer from "nodemailer";
+
+const recipient = "info@nexachemco.com";
 
 export async function POST(request) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM_EMAIL;
-  if (!apiKey || !from) {
+  const user = process.env.SMTP_USER;
+  const password = process.env.SMTP_PASSWORD;
+  if (!user || !password) {
     return Response.json({ error: "Email delivery is not configured yet." }, { status: 503 });
   }
 
@@ -30,26 +32,24 @@ export async function POST(request) {
     ["Message", message],
   ];
   const text = fields.map(([label, value]) => `${label}:\n${String(value || "").trim() || "Not provided"}`).join("\n\n");
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.hostinger.com",
+    port: Number(process.env.SMTP_PORT || 465),
+    secure: Number(process.env.SMTP_PORT || 465) === 465,
+    auth: { user, pass: password },
+  });
 
   try {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from,
-        to: [recipient],
-        reply_to: email,
-        subject: `Website enquiry from ${name}`,
-        text,
-      }),
+    await transporter.sendMail({
+      from: user,
+      to: recipient,
+      replyTo: email,
+      subject: `Website enquiry from ${name}`,
+      text,
     });
-    if (!response.ok) {
-      console.error("Resend email request failed:", response.status, await response.text());
-      return Response.json({ error: "Could not send your enquiry. Please try again later." }, { status: 502 });
-    }
     return Response.json({ ok: true });
   } catch (error) {
-    console.error("Email delivery request failed:", error);
-    return Response.json({ error: "Could not send your enquiry. Please try again later." }, { status: 502 });
+    console.error("SMTP delivery failed:", error);
+    return Response.json({ error: "Could not send your enquiry. Check the SMTP settings and try again." }, { status: 502 });
   }
 }

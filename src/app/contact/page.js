@@ -16,7 +16,7 @@ export default function Contact() {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(process.env.NODE_ENV === "production" ? "/.netlify/functions/contact" : "/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

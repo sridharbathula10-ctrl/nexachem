@@ -341,3 +341,5 @@ section.section.corporate-purpose .eyebrow { color:#d9f17f; }
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; animation-timeline:auto!important; transition-duration:.01ms!important; }
 }
+
+.brand { gap: 0; }.brand-logo { display: block; width: 124px; height: auto; }.footer-brand .brand-logo { width: 170px; border-radius: 4px; }
