@@ -16,7 +16,7 @@ export default function Contact() {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const response = await fetch("/api/contactpuku", {
+      const response = await fetch("/api/contactp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
