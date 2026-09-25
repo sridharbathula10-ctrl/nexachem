@@ -57,7 +57,7 @@ async function staticFile(pathname) {
 const server = createServer(async (request, response) => {
   try {
     const pathname = new URL(request.url || "/", "http://localhost").pathname;
-    if (pathname === "/api/contact") return await contact(request, response);
+    if (pathname === "/api/contact" || pathname === "/api/contactpuku") return await contact(request, response);
     if (request.method !== "GET" && request.method !== "HEAD") {
       response.setHeader("Allow", "GET, HEAD");
       return json(response, 405, { error: "Method not allowed." });
