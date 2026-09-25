@@ -13,7 +13,7 @@ export function Header() {
   return <>
     <div className="topline"><span>Industrial chemical supply across the GCC</span><Link href="/contact">Talk to our team <Arrow /></Link></div>
     <header className="site-header">
-      <Link className="brand" href="/" aria-label="NexaChem home"><Image className="brand-logo" src="/images/nexachem-logo.png" width={1672} height={941} alt="NexaChem Company — Reliable Chemicals, Trusted Solutions" priority unoptimized /></Link>
+      <Link className="brand" href="/" aria-label="NexaChem home"><Image className="brand-logo" src="/images/nexachem-site-logo.png" width={1672} height={941} alt="NexaChem" priority unoptimized /></Link>
       <nav className="desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <Link className={pathname === href ? "active" : ""} key={href} href={href}>{label}</Link>)}</nav>
       <Link className="nav-cta" href="/contact">Request a quote <Arrow /></Link>
       <details className="mobile-menu"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation">{links.map(([label, href]) => <Link className={pathname === href ? "active" : ""} key={href} href={href}>{label}</Link>)}<Link href="/contact">Request a quote</Link></nav></details>
@@ -25,7 +25,7 @@ export function Footer() {
   return <>
     <section className="quote"><div className="quote-inner"><div><p className="eyebrow light">Start a conversation</p><h2>Build a more dependable supply chain.</h2></div><Link className="button light-button" href="/contact">Discuss your requirement <Arrow /></Link></div></section>
     <footer className="site-footer"><div className="footer-top">
-      <div className="footer-brand"><Link className="brand" href="/" aria-label="NexaChem home"><Image className="brand-logo" src="/images/nexachem-logo.png" width={1672} height={941} alt="NexaChem Company — Reliable Chemicals, Trusted Solutions" unoptimized /></Link><p className="footer-tagline">Chemical supply and logistics for the industries shaping the region.</p><span className="footer-region">UAE · GCC · MIDDLE EAST</span></div>
+      <div className="footer-brand"><Link className="brand" href="/" aria-label="NexaChem home"><Image className="brand-logo" src="/images/nexachem-site-logo.png" width={1672} height={941} alt="NexaChem" unoptimized /></Link><p className="footer-tagline">Chemical supply and logistics for the industries shaping the region.</p><span className="footer-region">UAE · GCC · MIDDLE EAST</span></div>
       <div className="footer-links"><h3>Company</h3><Link href="/about">Corporate profile</Link><Link href="/industries">Industries</Link><Link href="/partners">Partners</Link><Link href="/contact">Contact</Link></div>
       <div className="footer-links"><h3>Capabilities</h3><Link href="/products">Product catalogue</Link><Link href="/services">Supply & logistics</Link><Link href="/quality">Quality & safety</Link><Link href="/resources">Resources</Link></div>
       <div className="footer-links"><h3>Get in touch</h3><a href="mailto:info@nexachemco.com">info@nexachemco.com</a><Link href="/contact">Send an enquiry <Arrow /></Link></div>
