@@ -1,11 +1,10 @@
-import Link from "next/link";
-import { Arrow, Layout, PageHero } from "../components/site-shell";
+import { Arrow, ContactTrigger, Layout } from "../components/site-shell";
 
 const values = [["Integrity", "Transparent and responsible business relationships."], ["Quality", "Product consistency and customer requirements at the centre."], ["Reliability", "Dependable supply and responsive communication."], ["Innovation", "Better products, processes, and solutions."], ["Safety", "Responsible chemical handling and safe business practices."], ["Sustainability", "Resource-conscious solutions and long-term environmental goals."], ["Partnership", "Strong relationships that create stronger businesses."]];
 
 export default function About() {
   return <Layout>
-    <PageHero eyebrow="About NexaChem" title={<>Empowering industrial growth across <em>UAE & GCC.</em></>} text="NexaChem Industrial Solutions Co. is a premier B2B chemical trading, distribution, and logistics organization dedicated to supporting manufacturing, energy, and water infrastructure across the Middle East." actions={<Link className="button primary" href="/contact">Connect with our team <Arrow /></Link>} />
+    <section className="page-intro about-page-intro"><div className="section-inner"><p className="eyebrow">About NexaChem</p><h1>Empowering industrial growth across <em>UAE &amp; GCC.</em></h1><p className="page-intro-description">NexaChem Industrial Solutions Co. is a premier B2B chemical trading, distribution, and logistics organization dedicated to supporting manufacturing, energy, and water infrastructure across the Middle East.</p><div className="page-intro-actions"><ContactTrigger className="button primary">Connect with our team <Arrow /></ContactTrigger></div></div></section>
     <section className="section"><div className="section-inner split">
       <div><p className="eyebrow">Corporate profile</p><h2 className="statement">A regional partner for <strong>essential supply.</strong></h2></div>
       <div className="split-copy"><p>NexaChem connects industrial customers with the raw materials and supply support their operations depend on. Our work brings chemical trading, distribution, logistics, and product knowledge together to serve customers across the UAE and wider GCC.</p><p>We support the manufacturing, energy, construction, and water sectors with a focus on dependable supply, certified product quality, responsive service, and responsible chemical handling.</p></div>
